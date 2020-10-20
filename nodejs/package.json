@@ -8,7 +8,7 @@
   },
   "author": "dzmitry naumau",
   "license": "MIT",
-  "dependencies":{
-    "lodash":"4.17.20"
+  "dependencies": {
+    "lodash": "4.17.20"
   }
 }

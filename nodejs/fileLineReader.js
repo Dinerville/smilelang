@@ -3,7 +3,7 @@ const fs = require('fs');
 const proccessor = require('./processorv2');
 
 const readInterface = readline.createInterface({
-    input: fs.createReadStream('./file1.smile'),
+    input: fs.createReadStream('../superheroes.smile'),
     console: false
 });
 
