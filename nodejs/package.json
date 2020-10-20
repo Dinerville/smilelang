@@ -4,7 +4,8 @@
   "description": "",
   "main": "fileLineReader.js",
   "scripts": {
-    "start": "node fileLineReader.js"
+    "start": "node fileLineReader.js",
+    "str": "node stringifyTest.js"
   },
   "author": "dzmitry naumau",
   "license": "MIT",
