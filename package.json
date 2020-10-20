@@ -1,0 +1,14 @@
+{
+  "name": "smile-lang",
+  "version": "1.0.0",
+  "description": "",
+  "main": "fileLineReader.js",
+  "scripts": {
+    "start": "node fileLineReader.js"
+  },
+  "author": "dzmitry naumau",
+  "license": "MIT",
+  "dependencies":{
+    "lodash":"4.17.20"
+  }
+}
