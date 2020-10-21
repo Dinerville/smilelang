@@ -2,11 +2,12 @@ module.exports = (()=>{
     let lines = []
     
     function stringify(obj){
+        if (Array.isArray(obj)){
+            stringifyArray(0, obj)
+        }else
         if(typeof(obj) === 'object'){
             stringifyObject(0, obj)
-        }else if (Array.isArray(obj)){
-            stringifyArray(0, obj)
-        }
+        } 
         return lines.join('\n')
     }
 
@@ -72,4 +73,4 @@ module.exports = (()=>{
     }
 
     return stringify
-})()
+})

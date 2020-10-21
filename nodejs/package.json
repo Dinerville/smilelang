@@ -10,6 +10,6 @@
   "author": "dzmitry naumau",
   "license": "MIT",
   "dependencies": {
-    "lodash": "4.17.20"
+    "smilelang": "1.0.3"
   }
 }

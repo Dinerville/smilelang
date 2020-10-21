@@ -1,4 +1,3 @@
-const { values } = require('lodash');
 /*
 1. create root
 2. add first item to the root
@@ -23,6 +22,9 @@ module.exports = (()=>{
     let firstRun = true;
 
     function processLine(line){ 
+        if(line.trim() === ''){
+            return;
+        }
         let parsedLine = getDescription(line)
         path = popToTheLevel(parsedLine.level, path)
         path.push(String(parsedLine.description.key))
@@ -34,6 +36,8 @@ module.exports = (()=>{
                 case "property":
                     root = {}
                     break;
+                case "simple":
+                    root = parsedLine.description.value
             }
             firstRun = false;
         }
@@ -44,13 +48,16 @@ module.exports = (()=>{
         if(value === null){
             return value
         }
-        value = value.trim()
+        value = String(value).trim()
         let valuePatterns = {
-            null: /null/,
-            number: /[0-9]{1,}\.{0,}[0-9]{0,}/,
-            boolTrue: /true/,
-            boolFalse: /false/,
-            string: /'(.*)'/
+            null: /^null/,
+            number: /^-{0,1}\s{0,}[0-9]{1,}\.{0,}[0-9]{0,}/,
+            boolTrue: /^true/,
+            boolFalse: /^false/,
+            string: /^'(.*)'/
+        }
+        if(valuePatterns.string.test(value)){
+            return valuePatterns.string.exec(value)[1]
         }
         if(valuePatterns.null.test(value)){
             return null
@@ -63,10 +70,7 @@ module.exports = (()=>{
         }
         if(valuePatterns.boolFalse.test(value)){
             return false
-        }
-        if(valuePatterns.string.test(value)){
-            return valuePatterns.string.exec(value)[1]
-        }
+        }  
     }
 
     function getDescription(line){
@@ -113,14 +117,6 @@ module.exports = (()=>{
     }
 
     function getLineDescription(line){
-        let listItemResult = patterns.listItem.exec(line)
-        if(listItemResult){
-            return {
-                type: 'listitem',
-                value: listItemResult[1].trim() === '' ? null : listItemResult[1].trim()
-            }
-        }
-    
         let propertyResult = patterns.property.exec(line)
         if(propertyResult){
             return {
@@ -129,6 +125,25 @@ module.exports = (()=>{
                 value: propertyResult[2].trim() === '' ? null : propertyResult[2].trim()
             }
         }
+
+        let listItemResult = patterns.listItem.exec(line)
+        if(listItemResult){
+            return {
+                type: 'listitem',
+                value: listItemResult[1].trim() === '' ? undefined : listItemResult[1].trim()
+            }
+        }
+
+        if(firstRun){
+            let simple = mapValue(line)
+            if(simple !== undefined){
+                return {
+                    type: 'simple',
+                    value: simple
+                }
+            }
+        }
+    
         let error = `provided line '${line}' is not a list item or property`
         throw new Error(error)      
     }
@@ -141,4 +156,4 @@ module.exports = (()=>{
         processLine,
         getResult
     }
-})()
+})

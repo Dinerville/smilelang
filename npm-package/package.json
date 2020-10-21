@@ -1,0 +1,19 @@
+{
+  "name": "smilelang",
+  "version": "1.0.4",
+  "description": "SMILE markup language",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "markup",
+    "smile",
+    "smilelang"
+  ],
+  "author": "dinerville@github",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "4.17.20"
+  }
+}

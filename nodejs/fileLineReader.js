@@ -1,6 +1,6 @@
 const readline = require('readline');
 const fs = require('fs');
-const parse = require('./engine/parse')
+const SMILE = require('smilelang')
 
 const readInterface = readline.createInterface({
     input: fs.createReadStream('../superheroes.smile'),
@@ -13,5 +13,5 @@ readInterface.on('line', function(line) {
 });
 
 readInterface.on('close', function() {
-    console.log(JSON.stringify(parse(lines),null,4))
+    console.log(JSON.stringify(SMILE.parse(lines.join('\n')),null,4))
 });
