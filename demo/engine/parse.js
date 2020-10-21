@@ -1,6 +1,7 @@
 const parse = (list) => {
+    const processorInstance = processor()
     list.forEach((line)=>{
-        processor.processLine(line)
+        processorInstance.processLine(line)
     })
-    return processor.getResult()
+    return processorInstance.getResult()
 }

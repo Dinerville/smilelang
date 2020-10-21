@@ -73,4 +73,4 @@ const stringify = (()=>{
     }
 
     return stringify
-})()
+})

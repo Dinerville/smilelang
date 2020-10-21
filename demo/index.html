@@ -4,13 +4,50 @@
         <script src="./engine/processorv2.js"></script>
         <script src="./engine/parse.js"></script>
         <script src="./engine/stringify.js"></script>
+        <script src="./engine/helper.js"></script>
+        <script src="./engine/demos/index.js"></script>
+        <script src="./engine/demos/json/superheroes.demo.js"></script>
+        <script src="./engine/demos/smile/superheroes.demo.js"></script>
+        <script src="./engine/demos/json/employees.js"></script>
+        <script src="./engine/demos/smile/employees.js"></script>
+        <script src="./engine/demos/json/weather.js"></script>
+        <script src="./engine/demos/smile/weather.js"></script>
+        <script src="./engine/demos/json/multilanguage.js"></script>
+        <script src="./engine/demos/smile/multilanguage.js"></script>
+        <script>
+          window.onload = function(){
+            setDemoSmile('superheroes')
+          }
+        </script>
     </head>
     <body>
-        <button onclick="setJson()">Перевести SMILE в JSON</button>
-        <button onclick="setSmile()">Перевести JSON в SMILE</button>
-        <br/>
-        <textarea id="one" style="width:50%; height: 90vh"></textarea>
-        <textarea id="two" style="width:50%; float: right; height: 90vh"></textarea>
-        <script src="./engine/helper.js"></script>
+        <div style="width:50%; float: left;">
+          <label for="smilesdemo">Select demo SMILE</label>
+
+          <select  onchange="setDemoSmile(this.options[this.selectedIndex].value)" name="smilesdemo" id="smilesdemo">  
+            <option value="superheroes">superheroes</option>
+            <option value="employees">employees</option>
+            <option value="weather">weather</option>
+            <option value="multilanguage">multilanguage</option>
+          </select>
+        </div>
+        <div style="width:49%; float: right; ">
+          <label for="jsonsdemo">Select demo JSON</label>
+
+          <select onchange="setDemoJson(this.options[this.selectedIndex].value)" name="jsonsdemo" id="jsonsdemo">  
+            <option value="superheroes">superheroes</option>
+            <option value="employees">employees</option>
+            <option value="weather">weather</option>
+            <option value="multilanguage">multilanguage</option>
+          </select>
+        </div>
+        <button onclick="setJson()" style="width:50%">SMILE to JSON</button>
+        <button onclick="setSmile()" style="width:49%">JSON to SMILE</button>
+        <textarea 
+        placeholder="Write SMILE here"
+        id="one" style="width:50%; height: 90vh"></textarea>
+        <textarea 
+        placeholder="Write JSON here"
+        id="two" style="width:50%; float: right; height: 90vh"></textarea>
     </body>
 </html>

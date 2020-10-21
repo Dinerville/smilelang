@@ -54,6 +54,9 @@ const processor = (()=>{
             boolFalse: /false/,
             string: /'(.*)'/
         }
+        if(valuePatterns.string.test(value)){
+            return valuePatterns.string.exec(value)[1]
+        }
         if(valuePatterns.null.test(value)){
             return null
         }
@@ -66,9 +69,7 @@ const processor = (()=>{
         if(valuePatterns.boolFalse.test(value)){
             return false
         }
-        if(valuePatterns.string.test(value)){
-            return valuePatterns.string.exec(value)[1]
-        }
+        
     }
 
     function getDescription(line){
@@ -115,14 +116,6 @@ const processor = (()=>{
     }
 
     function getLineDescription(line){
-        let listItemResult = patterns.listItem.exec(line)
-        if(listItemResult){
-            return {
-                type: 'listitem',
-                value: listItemResult[1].trim() === '' ? null : listItemResult[1].trim()
-            }
-        }
-    
         let propertyResult = patterns.property.exec(line)
         if(propertyResult){
             return {
@@ -131,6 +124,15 @@ const processor = (()=>{
                 value: propertyResult[2].trim() === '' ? null : propertyResult[2].trim()
             }
         }
+
+        let listItemResult = patterns.listItem.exec(line)
+        if(listItemResult){
+            return {
+                type: 'listitem',
+                value: listItemResult[1].trim() === '' ? null : listItemResult[1].trim()
+            }
+        }
+    
         let error = `provided line '${line}' is not a list item or property`
         throw new Error(error)      
     }
@@ -143,4 +145,4 @@ const processor = (()=>{
         processLine,
         getResult
     }
-})()
+})
