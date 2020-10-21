@@ -36,6 +36,8 @@ const processor = (()=>{
                 case "property":
                     root = {}
                     break;
+                case "simple":
+                    root = parsedLine.description.value
             }
             firstRun = false;
         }
@@ -46,13 +48,13 @@ const processor = (()=>{
         if(value === null){
             return value
         }
-        value = value.trim()
+        value = String(value).trim()
         let valuePatterns = {
-            null: /null/,
-            number: /[0-9]{1,}\.{0,}[0-9]{0,}/,
-            boolTrue: /true/,
-            boolFalse: /false/,
-            string: /'(.*)'/
+            null: /^null/,
+            number: /^-{0,1}\s{0,}[0-9]{1,}\.{0,}[0-9]{0,}/,
+            boolTrue: /^true/,
+            boolFalse: /^false/,
+            string: /^'(.*)'/
         }
         if(valuePatterns.string.test(value)){
             return valuePatterns.string.exec(value)[1]
@@ -68,8 +70,7 @@ const processor = (()=>{
         }
         if(valuePatterns.boolFalse.test(value)){
             return false
-        }
-        
+        }  
     }
 
     function getDescription(line){
@@ -129,7 +130,17 @@ const processor = (()=>{
         if(listItemResult){
             return {
                 type: 'listitem',
-                value: listItemResult[1].trim() === '' ? null : listItemResult[1].trim()
+                value: listItemResult[1].trim() === '' ? undefined : listItemResult[1].trim()
+            }
+        }
+
+        if(firstRun){
+            let simple = mapValue(line)
+            if(simple !== undefined){
+                return {
+                    type: 'simple',
+                    value: simple
+                }
             }
         }
     
