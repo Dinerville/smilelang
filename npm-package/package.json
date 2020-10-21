@@ -4,7 +4,8 @@
   "description": "SMILE markup language",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "browserify": "browserify index.js -o bundle.js"
   },
   "keywords": [
     "markup",
