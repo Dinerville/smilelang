@@ -1,10 +1,6 @@
 <html>
     <head>
-        <script src="./engine/lodash.js"></script>
-        <script src="./engine/processorv2.js"></script>
-        <script src="./engine/parse.js"></script>
-        <script src="./engine/stringify.js"></script>
-        <script src="./engine/helper.js"></script>
+        <script src="https://unpkg.com/smilelang@1.0.6/bundle.js"></script>
         <script src="./engine/demos/index.js"></script>
         <script src="./engine/demos/json/superheroes.demo.js"></script>
         <script src="./engine/demos/smile/superheroes.demo.js"></script>
@@ -17,6 +13,27 @@
         <script src="./engine/demos/json/personal.js"></script>
         <script src="./engine/demos/smile/personal.js"></script>
         <script>
+          var SMILE = require('smilelang')
+          function setJson(){
+    let element = document.getElementById("one")
+    let json = JSON.stringify(SMILE.parse(element.value),null,4)
+    document.getElementById("two").value = json
+}
+
+function setSmile(){
+    let element = document.getElementById("two")
+    document.getElementById("one").value = SMILE.stringify(JSON.parse(element.value))
+}
+
+function setDemoJson(name){
+    document.getElementById("two").value = window.demos.json[name]
+    setSmile()
+}
+
+function setDemoSmile(name){
+    document.getElementById("one").value = window.demos.smile[name]
+    setJson()
+}
           window.onload = function(){
             setDemoSmile('superheroes')
           }

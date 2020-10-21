@@ -1,4 +1,4 @@
-(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
+require=(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 const processor = require('./processorv2')
 
 module.exports = (list) => {
@@ -168,7 +168,7 @@ module.exports = (()=>{
         getResult
     }
 })
-},{"lodash":5}],3:[function(require,module,exports){
+},{"lodash":4}],3:[function(require,module,exports){
 module.exports = (()=>{
     let lines = []
     
@@ -247,18 +247,6 @@ module.exports = (()=>{
 })
 
 },{}],4:[function(require,module,exports){
-let parse = require('./engine/parse')
-let stringify = require('./engine/stringify')
-
-module.exports = {
-    parse: function(text, delimiter){
-        return parse(text.split(delimiter || '\n'))
-    },
-    stringify: function(object){
-        return stringify()(object)
-    }
-}
-},{"./engine/parse":1,"./engine/stringify":3}],5:[function(require,module,exports){
 (function (global){(function (){
 /**
  * @license
@@ -17423,4 +17411,16 @@ module.exports = {
 }.call(this));
 
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}]},{},[4]);
+},{}],"smilelang":[function(require,module,exports){
+let parse = require('./engine/parse')
+let stringify = require('./engine/stringify')
+
+module.exports = {
+    parse: function(text, delimiter){
+        return parse(text.split(delimiter || '\n'))
+    },
+    stringify: function(object){
+        return stringify()(object)
+    }
+}
+},{"./engine/parse":1,"./engine/stringify":3}]},{},[]);

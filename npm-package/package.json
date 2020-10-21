@@ -1,11 +1,11 @@
 {
   "name": "smilelang",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "description": "SMILE markup language",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "browserify": "browserify index.js -o bundle.js"
+    "browserify": "browserify -r ./index.js:smilelang > bundle.js"
   },
   "keywords": [
     "markup",
