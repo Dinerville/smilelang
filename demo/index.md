@@ -62,7 +62,7 @@ address:
 ```
 
 object is a set of keys and values. the pattern is `key: value`.  
-key is any characters, including whitespaces. For example `city` or `address line 1`  
+key is any characters, including whitespaces, except `:`. For example `city` or `address line 1`  
 value is any value of the types above (string, number, boolean, null) or object or list(will be discussed soon) types
 
 nested object

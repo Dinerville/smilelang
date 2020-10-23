@@ -1,6 +1,6 @@
 <html>
     <head>
-        <script src="https://unpkg.com/smilelang@1.0.6/bundle.js"></script>
+        <script src="https://unpkg.com/smilelang@1.1.0/bundle.js"></script>
         <script src="./engine/demos/index.js"></script>
         <script src="./engine/demos/json/superheroes.demo.js"></script>
         <script src="./engine/demos/smile/superheroes.demo.js"></script>
@@ -35,7 +35,7 @@ function setDemoSmile(name){
     setJson()
 }
           window.onload = function(){
-            setDemoSmile('superheroes')
+            setDemoSmile('personal')
           }
         </script>
     </head>
@@ -44,20 +44,20 @@ function setDemoSmile(name){
           <label for="smilesdemo">Select demo SMILE</label>
 
           <select  onchange="setDemoSmile(this.options[this.selectedIndex].value)" name="smilesdemo" id="smilesdemo">  
+            <option value="personal">personal</option>
             <option value="superheroes">superheroes</option>
             <option value="employees">employees</option>
             <option value="weather">weather</option>
-            <option value="personal">personal</option>
           </select>
         </div>
         <div style="width:49%; float: right; ">
           <label for="jsonsdemo">Select demo JSON</label>
 
           <select onchange="setDemoJson(this.options[this.selectedIndex].value)" name="jsonsdemo" id="jsonsdemo">  
+            <option value="personal">personal</option>
             <option value="superheroes">superheroes</option>
             <option value="employees">employees</option>
             <option value="weather">weather</option>
-            <option value="personal">personal</option>
           </select>
         </div>
         <button onclick="setJson()" style="width:50%">SMILE to JSON</button>
