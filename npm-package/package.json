@@ -1,6 +1,6 @@
 {
   "name": "smilelang",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "SMILE markup language",
   "main": "index.js",
   "scripts": {
@@ -19,6 +19,7 @@
   "bugs": {
     "url": "https://github.com/Dinerville/smilelang/issues"
   },
+  "homepage":"https://smilelang.netlify.app/",
   "author": "dinerville",
   "license": "MIT",
   "dependencies": {
