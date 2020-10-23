@@ -15,7 +15,7 @@ module.exports = (()=>{
     let root = null;
     let patterns = {
         listItem: /\s{0,}-(.*)/,
-        property: /\s{0,}(.*):(.*)/,
+        property: /\s{0,}(.*?):(.*)/,
     }
     let listLevels = []
     let path = []
