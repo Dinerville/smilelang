@@ -12,7 +12,14 @@
     "smile",
     "smilelang"
   ],
-  "author": "dinerville@github",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Dinerville/smilelang.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Dinerville/smilelang/issues"
+  },
+  "author": "dinerville",
   "license": "MIT",
   "dependencies": {
     "lodash": "4.17.20"
