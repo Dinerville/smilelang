@@ -1,5 +1,5 @@
 # SMILE - simple markup language
-SMILE is like YAML, but simpler
+SMILE is similar to YAML, but much more simple to learn and use.
 
 ## Install
 
@@ -24,7 +24,7 @@ var SMILE = require('smilelang')
 ```
 'some string'
 ```  
-string is any characters, covered with single quotes
+A `string` is any collection of characters. It nust have a single quote at the beginning to open the string and a single quote at the end to close it.
 
 ### number
 examples
@@ -39,16 +39,16 @@ examples
 true
 false
 ```
-boolean is a special type which has only 2 values: true or false. 
+A `boolean` is a special type which must be one of two possible values, either `true` or `false`. 
 
-### no value
+### no set value
 
 ```
 null
 ```
 
-`null` is used to specify that there is no value.   
-We don't have different types of no values, like in JSON (no value of enumerable type - [], no value of object type - {}, just no value - null). In SMILE it all is `null` 
+The value `null` is used to specify that there is no set value.   
+Unlike languages such as JSON (no value of `enumerable` type - `[]`, no value of `object` type - `{}`), Smile does not have different types of no set value. In Smile all of these are just no set value: `null`
 
 ### object
 ```
@@ -61,9 +61,9 @@ address:
   city: 'New York' 
 ```
 
-object is a set of keys and values. the pattern is `key: value`.  
-key is any characters, including whitespaces, except `:`. For example `city` or `address line 1`  
-value is any value of the types above (string, number, boolean, null) or object or list(will be discussed soon) types
+An `object` is a set of `keys` and `values`. the pattern is `key: value`.  
+`key` is any characters, including whitespaces, except `:`. For example `city` or `address line 1`  
+`value` is any value of the types above (`string`, `number`, `boolean`, `null`) or `object` or `list` types (`list` is discussed below).
 
 nested object
 ```
@@ -71,7 +71,7 @@ address:
   country: 'USA'
   city: 'New York' 
 ```
-to show that `address` key has value of object, leave `address:` on the first line and write next object `key:value` pair in the next line. Put *2 whitespaces* before the key so that compiler will know that next object belongs to `address` key. Depth is not limited, you can create nested objects inside nested objects.
+to show that the `address` key has value of an `object`, leave `address:` on the first line and write next object `key:value` pair in the next line. Put *2 whitespaces* before the key so that compiler will know that the next object belongs to the `address` key. Depth is not limited, you can create nested objects inside nested objects.
 ```
 address:
   country: 'USA'
@@ -95,8 +95,8 @@ address:
   surname: 'Stark'
 ```
 
-list is almost the same as object, but instead of `key:` you have `-` sign. It is usefull in the cases when you don't need key for each item and want to get the item by it's index, for example item number 2.  
-List can have the same `value`s as object (string, number, boolean, null, object, list)
+`list` is similar to an `object`, but instead of `key:` you have `-` sign. It is usefull in cases where you don't need key for each item and want to get the item by it's index, for example item number 2.  
+`List` can have the same `value`s as `object` (`string`, `number`, `boolean`, `null`, `object`, `list`)
 
 make list a value to object key
 ```
@@ -111,8 +111,9 @@ members:
 ```
 
 # That is all
-I hope you found it really simple  
-Especially compared to YAML
+I hope you find it very simple and easy to use.
+
+Especially when compared with YAML!
 
 ## SMILE example
 
