@@ -1,7 +1,5 @@
 # SMILE - simplified markup language
 
-Compare smile to json
-
 SMILE
 ```
 squadName: 'Super hero squad'

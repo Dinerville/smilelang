@@ -33,13 +33,13 @@
   <div class="stackedit__right">
     <div class="stackedit__html">
       <h1 id="smile---simple-markup-language">SMILE - simple markup language</h1>
-<p>SMILE is like YAML, but simpler</p>
+<p>SMILE is similar to YAML, but much more simple to learn and use.</p>
 <h2 id="install">Install</h2>
 <p>npm</p>
 <pre><code>npm i smilelang
 </code></pre>
 <p>html</p>
-<pre class=" language-html"><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://unpkg.com/smilelang@1.1.0/bundle.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<pre class=" language-html"><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://unpkg.com/smilelang@1.1.3/bundle.js<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
 
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript">
 <span class="token keyword">var</span> SMILE <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'smilelang'</span><span class="token punctuation">)</span>
@@ -50,7 +50,7 @@
 <h3 id="string">string</h3>
 <pre><code>'some string'
 </code></pre>
-<p>string is any characters, covered with single quotes</p>
+<p>A <code>string</code> is any collection of characters. It must have a single quote at the beginning to open the string and a single quote at the end to close it.</p>
 <h3 id="number">number</h3>
 <p>examples</p>
 <pre><code>123
@@ -61,12 +61,12 @@
 <pre><code>true
 false
 </code></pre>
-<p>boolean is a special type which has only 2 values: true or false.</p>
-<h3 id="no-value">no value</h3>
+<p>A <code>boolean</code> is a special type which must be one of two possible values, either <code>true</code> or <code>false</code>.</p>
+<h3 id="no-set-value">no set value</h3>
 <pre><code>null
 </code></pre>
-<p><code>null</code> is used to specify that there is no value.<br>
-We don’t have different types of no values, like in JSON (no value of enumerable type - [], no value of object type - {}, just no value - null). In SMILE it all is <code>null</code></p>
+<p>The value <code>null</code> is used to specify that there is no set value.<br>
+Unlike languages such as JSON (no value of <code>enumerable</code> type - <code>[]</code>, no value of <code>object</code> type - <code>{}</code>), Smile does not have different types of no set value. In Smile all of these are just no set value: <code>null</code></p>
 <h3 id="object">object</h3>
 <pre><code>name: 'Steve'
 age: 30
@@ -76,15 +76,15 @@ address:
   country: 'USA'
   city: 'New York' 
 </code></pre>
-<p>object is a set of keys and values. the pattern is <code>key: value</code>.<br>
-key is any characters, including whitespaces, except <code>:</code>. For example <code>city</code> or <code>address line 1</code><br>
-value is any value of the types above (string, number, boolean, null) or object or list(will be discussed soon) types</p>
+<p>An <code>object</code> is a set of <code>keys</code> and <code>values</code>. the pattern is <code>key: value</code>.<br>
+<code>key</code> is any characters, including whitespaces, except <code>:</code>. For example <code>name</code> or <code>age</code><br>
+<code>value</code> is any value of the types above (<code>string</code>, <code>number</code>, <code>boolean</code>, <code>null</code>) or <code>object</code> or <code>list</code> types (<code>list</code> is discussed below).</p>
 <p>nested object</p>
 <pre><code>address:
   country: 'USA'
   city: 'New York' 
 </code></pre>
-<p>to show that <code>address</code> key has value of object, leave <code>address:</code> on the first line and write next object <code>key:value</code> pair in the next line. Put <em>2 whitespaces</em> before the key so that compiler will know that next object belongs to <code>address</code> key. Depth is not limited, you can create nested objects inside nested objects.</p>
+<p>to show that the <code>address</code> key has value of an <code>object</code>, leave <code>address:</code> on the first line and write next object <code>key:value</code> pair in the next line. Put <em>2 whitespaces</em> before the key so that compiler will know that the next object belongs to the <code>address</code> key. Depth is not limited, you can create nested objects inside nested objects.</p>
 <pre><code>address:
   country: 'USA'
   contact:
@@ -103,8 +103,8 @@ value is any value of the types above (string, number, boolean, null) or object 
   name: 'Tony'
   surname: 'Stark'
 </code></pre>
-<p>list is almost the same as object, but instead of <code>key:</code> you have <code>-</code> sign. It is usefull in the cases when you don’t need key for each item and want to get the item by it’s index, for example item number 2.<br>
-List can have the same <code>value</code>s as object (string, number, boolean, null, object, list)</p>
+<p><code>list</code> is similar to an <code>object</code>, but instead of <code>key:</code> you have <code>-</code> sign. It is usefull in cases where you don’t need key for each item and want to get the item by it’s index, for example item number 2.<br>
+<code>List</code> can have the same <code>value</code>s as <code>object</code> (<code>string</code>, <code>number</code>, <code>boolean</code>, <code>null</code>, <code>object</code>, <code>list</code>)</p>
 <p>make list a value to object key</p>
 <pre><code>members:
   - 'Tony Stark'
@@ -116,8 +116,8 @@ List can have the same <code>value</code>s as object (string, number, boolean, n
       - 'you'
 </code></pre>
 <h1 id="that-is-all">That is all</h1>
-<p>I hope you found it really simple<br>
-Especially compared to YAML</p>
+<p>I hope you find it very simple and easy to use.</p>
+<p>Especially when compared with YAML!</p>
 <h2 id="smile-example">SMILE example</h2>
 <pre><code>squadName: 'Super hero squad'
 homeTown: 'Metro City'

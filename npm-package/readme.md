@@ -10,7 +10,7 @@ npm i smilelang
 
 html
 ```html
-<script src="https://unpkg.com/smilelang@1.1.0/bundle.js"></script>
+<script src="https://unpkg.com/smilelang@1.1.3/bundle.js"></script>
 
 <script>
 var SMILE = require('smilelang')
@@ -24,7 +24,7 @@ var SMILE = require('smilelang')
 ```
 'some string'
 ```  
-A `string` is any collection of characters. It nust have a single quote at the beginning to open the string and a single quote at the end to close it.
+A `string` is any collection of characters. It must have a single quote at the beginning to open the string and a single quote at the end to close it.
 
 ### number
 examples
@@ -62,7 +62,7 @@ address:
 ```
 
 An `object` is a set of `keys` and `values`. the pattern is `key: value`.  
-`key` is any characters, including whitespaces, except `:`. For example `city` or `address line 1`  
+`key` is any characters, including whitespaces, except `:`. For example `name` or `age`  
 `value` is any value of the types above (`string`, `number`, `boolean`, `null`) or `object` or `list` types (`list` is discussed below).
 
 nested object
